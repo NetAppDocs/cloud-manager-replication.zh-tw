@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: task-managing-replication.html 
+keywords: replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, source, destination, schedule, relationship, break, resync, max transfer, maximum transfer rate, rate, transfer rate, reverse resync, status, replication status, disaster recovery, DR, archive, archiving, retention 
+summary: 在兩個系統之間設定資料複寫之後、即可從 Cloud Manager 管理資料複寫排程和關係。 
+---
+= 管理排程與關係
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在兩個系統之間設定資料複寫之後、即可從 Cloud Manager 管理資料複寫排程和關係。
+
+.步驟
+. 按一下「*複寫*」。
+. 檢閱資料複寫關係的狀態、確認它們是否健全。
++
+
+NOTE: 如果關係的狀態為閒置且鏡射狀態未初始化、則您必須從目的地系統初始化關係、以便根據定義的排程進行資料複寫。您可以使用 System Manager 或命令列介面（ CLI ）初始化關係。當目的地系統故障後恢復連線時、這些狀態可能會出現。
+
+. 按一下動作功能表以取得磁碟區關係、然後選擇其中一個可用的動作。
++
+image:screenshot_replication_managing.gif["螢幕擷取畫面：顯示「複寫狀態」頁面中可用的動作清單。"]
+
++
+下表說明可用的動作：
+
++
+[cols="15,85"]
+|===
+| 行動 | 說明 
+
+
+| 資訊 | 顯示磁碟區關係的詳細資料：傳輸資訊、上次傳輸資訊、磁碟區詳細資料、以及指派給該關係的保護原則相關資訊。 
+
+
+| 中斷 | 中斷來源與目的地磁碟區之間的關係、並啟動目的地磁碟區以進行資料存取。當來源磁碟區因資料毀損、意外刪除或離線狀態等事件而無法提供資料時、通常會使用此選項。https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["瞭解如何設定目的地Volume以存取資料、並重新啟動ONTAP 來源Volume（英文）、請參閱本文檔"^] 
+
+
+| 重新同步  a| 
+重新建立磁碟區之間的中斷關係、並根據定義的排程恢復資料複寫。
+
+
+NOTE: 當您重新同步磁碟區時、目的地磁碟區上的內容會被來源磁碟區上的內容覆寫。
+
+若要瞭解如何執行反向重新同步、以重新同步從目的地磁碟區到來源磁碟區的資料、請前往 https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["本文檔 ONTAP"^]。
+
+
+
+| 反轉重新同步 | 反轉來源與目的地磁碟區的角色。來自原始來源 Volume 的內容會被目的地 Volume 的內容覆寫。當您想要重新啟動離線的來源 Volume 時、這很有幫助。在上次資料複寫與停用來源磁碟區之間寫入原始來源磁碟區的任何資料都不會保留。 
+
+
+| 編輯排程 | 可讓您選擇不同的資料複寫排程。 
+
+
+| 編輯最大傳輸率 | 可讓您編輯資料傳輸的最大速率（以每秒 KB 為單位）。 
+
+
+| 更新 | 開始遞增傳輸以更新目的地 Volume 。 
+
+
+| 刪除 | 刪除來源與目的地磁碟區之間的資料保護關係、這表示磁碟區之間不再發生資料複寫。此動作不會啟動目的地 Volume 以進行資料存取。如果系統之間沒有其他資料保護關係、此動作也會刪除叢集對等關係和儲存VM（SVM）對等關係。 
+|===
+
+
+選取動作之後、 Cloud Manager 會更新關係或排程。

@@ -1,0 +1,61 @@
+---
+settings:
+  name: Replication
+  platform: cloud
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: zh-tw,us-en,ja-jp,zh-cn,ko-kr
+sidebar:
+  entries:
+  - title: 所有Cloud Manager文件
+    url: https://docs.netapp.com/us-en/cloud-manager-family
+  - title: 複寫文件
+    url: "/index.html"
+  - title: 版本資訊
+    url: "/whats-new.html"
+  - title: 開始使用
+    entries:
+    - title: 深入瞭解複寫服務
+      url: "/concept-replication.html"
+    - title: 設定資料複寫
+      url: "/task-replicating-data.html"
+  - title: 管理資料複寫
+    url: "/task-managing-replication.html"
+  - title: 概念
+    entries:
+    - title: 複寫原則
+      url: "/concept-replication-policies.html"
+    - title: 備份原則
+      url: "/concept-backup-policies.html"
+  - title: 知識與支援
+    entries:
+    - title: 註冊以取得支援
+      url: "/task-support-registration.html"
+    - title: 取得協助
+      url: "/task-get-help.html"
+  - title: 法律聲明
+    url: "/legal-notices.html"
+homepage:
+  tiles:
+  - title: 開始使用
+    links:
+    - title: 深入瞭解複寫服務
+      url: concept-replication.html
+    - title: 設定資料複寫
+      url: task-replicating-data.html
+  - title: 使用複寫服務
+    links:
+    - title: 管理資料複寫
+      url: task-managing-replication.html
+  - title: 部落格社群
+    links:
+    - title: NetApp社群
+      url: https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS
+    - title: Cloud Central部落格
+      url: https://cloud.netapp.com/blog
+    - title: 雲端網路研討會
+      url: https://cloud.netapp.com/events
+product-family: {}

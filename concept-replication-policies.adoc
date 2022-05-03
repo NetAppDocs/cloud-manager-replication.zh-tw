@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: concept-replication-policies.html 
+keywords: replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, disaster recovery, DR 
+summary: 您可以在 Cloud Manager 工作環境之間複寫資料。您可以選擇一次性資料複寫來在雲端之間來回移動資料、或選擇重複排程來進行災難恢復或長期保留。 
+---
+= 深入瞭解複寫原則
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在 Cloud Manager 中設定資料複寫時、您可能需要協助選擇複寫原則。複寫原則定義儲存系統如何將資料從來源磁碟區複寫到目的地磁碟區。
+
+
+
+== 複寫原則的功能
+
+這個作業系統會自動建立稱為 Snapshot 複本的備份。 ONTAPSnapshot 複本是磁碟區的唯讀映像、可在某個時間點擷取檔案系統的狀態。
+
+當您在系統之間複寫資料時、會將 Snapshot 複本從來源磁碟區複寫到目的地磁碟區。複寫原則會指定要從來源磁碟區複寫到目的地磁碟區的 Snapshot 複本。
+
+
+TIP: 複寫原則也稱為「 _protection 」原則、因為它們採用 SnapMirror 和 SnapVault SnapMirror 技術、可提供災難恢復保護、以及磁碟對磁碟備份與還原。
+
+下圖顯示 Snapshot 複本與複寫原則之間的關係：
+
+image:diagram_replication_policies.png["此圖顯示來源磁碟區上的 Snapshot 複本、以及指定從來源磁碟區複寫所有或特定 Snapshot 複本至目的地磁碟區的複寫原則。"]
+
+
+
+== 複寫原則類型
+
+複寫原則有三種類型：
+
+* _Mirror_ 原則會將新建立的 Snapshot 複本複寫到目的地 Volume 。
++
+您可以使用這些 Snapshot 複本來保護來源磁碟區、以便做好災難恢復或一次性資料複寫的準備。您可以隨時啟動目的地 Volume 以進行資料存取。
+
+* _Backup 原則會將特定的 Snapshot 複本複寫到目的地磁碟區、通常會將它們保留較長的時間、而不會超過來源磁碟區的時間。
++
+當資料毀損或遺失時、您可以從這些 Snapshot 複本還原資料、並保留這些複本以符合標準及其他治理相關用途。
+
+* 鏡射與備份原則提供災難恢復與長期保留。
++
+每個系統都有預設的鏡射與備份原則、適用於許多情況。如果您發現需要自訂原則、可以使用 System Manager 建立自己的原則。
+
+
+
+下列影像顯示鏡射與備份原則之間的差異。鏡射原則會鏡射來源磁碟區上可用的 Snapshot 複本。
+
+image:diagram_replication_snapmirror.png["此圖顯示來源磁碟區上的 Snapshot 複本、以及鏡射來源磁碟區的 Mirror 目的地磁碟區。"]
+
+備份原則通常會保留快照複本的時間比保留在來源磁碟區上的時間長：
+
+image:diagram_replication_snapvault.png["此圖顯示來源 Volume 上的 Snapshot 複本、以及包含更多 Snapshot 複本的備份目的地 Volume 、因為 SnapVault 此功能會保留 Snapshot 複本以供長期保留。"]

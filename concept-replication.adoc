@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: concept-replication.html 
+keywords: ontap, cluster, discover, manage, cloud manager, hybrid cloud, replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, fanout, cascade, source, destination, disaster recovery, DR, archive, archiving, retention 
+summary: NetApp SnapMirror可透過LAN或WAN高速複寫資料、因此您可以在虛擬與傳統環境中同時獲得高資料可用度與快速資料複寫。當您將資料複寫到NetApp儲存系統並持續更新次要資料時、資料會保持最新狀態、並在需要時隨時保持可用。不需要外部複寫伺服器。 
+---
+= 深入瞭解複寫服務
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp SnapMirror可透過LAN或WAN高速複寫資料、因此您可以在虛擬與傳統環境中同時獲得高資料可用度與快速資料複寫。當您將資料複寫到NetApp儲存系統並持續更新次要資料時、資料會保持最新狀態、並在需要時隨時保持可用。不需要外部複寫伺服器。
+
+
+
+== 功能
+
+* 在ONTAP 支援備份與災難恢復的不間斷儲存系統之間或雲端之間複寫資料。
+* 以高可用度確保災難恢復環境的可靠性。
+* 效能優異的區塊層級複寫ONTAP 功能可在不中斷的情況下快速有效地進行、並提供精細的災難恢復和備份還原點。
+
+
+
+
+== 成本
+
+NetApp並不收取使用複寫服務的費用、但您必須向雲端供應商查詢適用的資料進出費用。
+
+
+
+== 支援的工作環境
+
+Cloud Manager可在下列工作環境類型之間進行資料複寫。
+
+[cols="30,30"]
+|===
+| 來源工作環境 | 支援的目標工作環境 
+
+
+| Cloud Volumes ONTAP  a| 
+* Amazon FSX for ONTAP Sf
+* Cloud Volumes ONTAP
+* 內部ONTAP 使用的叢集
+
+
+
+
+| 內部ONTAP 使用的叢集  a| 
+* Amazon FSX for ONTAP Sf
+* Cloud Volumes ONTAP
+* 內部ONTAP 使用的叢集
+
+
+|===
+
+
+== 資料複寫的運作方式
+
+Cloud Manager ONTAP 使用SnapMirror和SnapVault SnapMirror技術、簡化個別支援的各個作業系統上磁碟區之間的資料複寫作業。您只需識別來源磁碟區和目的地磁碟區、然後選擇複寫原則和排程即可。
+
+對於NetApp、Cloud Manager會購買所需的磁碟、設定關係、套用複寫原則、然後在磁碟區之間開始基礎傳輸。Cloud Volumes ONTAP
+
+
+NOTE: 基礎傳輸包含來源資料的完整複本。後續傳輸包含來源資料的差異複本。
+
+
+
+== 支援的資料保護組態
+
+Cloud Manager 支援簡單易用、可展開及串聯的資料保護組態：
+
+* 在簡單的組態中、從磁碟區 A 複寫到磁碟區 B
+* 在扇出組態中、從磁碟區 A 複寫到多個目的地。
+* 在串聯組態中、從磁碟區 A 複寫到磁碟區 B 、從磁碟區 B 複寫到磁碟區 C
+

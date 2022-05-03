@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+  <block id="4d8208136280cbaba3cab05e5996a3a8" category="summary">在ONTAP 支援備份與災難恢復的不間斷儲存系統之間或雲端之間複寫資料。</block>
+  <block id="dc699e704dec5502b9aa219f9381ad94" category="doc">複寫文件</block>
+  <block id="ce21e7ae4271271294ccbf54c8fd6864" category="summary">NetApp以多種方式支援Cloud Manager。我們全年無休提供豐富的免費自助支援選項、例如知識庫（KB）文章和社群論壇。您的支援註冊包括透過網路票證提供遠端技術支援。</block>
+  <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">取得協助</block>
+  <block id="51719eefc68685ac0e2a11057a44b8be" category="paragraph">NetApp以多種方式支援Cloud Manager及其雲端服務。我們全年無休提供豐富的免費自助支援選項、例如知識庫（KB）文章和社群論壇。您的支援註冊包括透過網路票證提供遠端技術支援。</block>
+  <block id="07d41912a6ab6b97216f8cf89e93205c" category="section-title">自我支援</block>
+  <block id="5e4b821a1a82558dead1ef6961e90666" category="paragraph">這些選項可供免費使用、一天24小時、一週7天：</block>
+  <block id="19111351b69b6b15668130b38b7f6038" category="inline-link">知識庫</block>
+  <block id="fd6bb4fa1ad0caeedd6782d92cc54ea3" category="list-text"><block ref="fd6bb4fa1ad0caeedd6782d92cc54ea3" category="inline-link-rx"></block></block>
+  <block id="76b571fb5edea1c1994fa0ff01f7b1e2" category="paragraph">請搜尋Cloud Manager知識庫、找出有助於疑難排解問題的文章。</block>
+  <block id="14526abd8bda5af347775025cd5342cf" category="inline-link">社群</block>
+  <block id="410fdb9caa9c64da2ff3f88f4836960d" category="list-text"><block ref="410fdb9caa9c64da2ff3f88f4836960d" category="inline-link-rx"></block></block>
+  <block id="7f3490343cad8dc3bfdb72dd5d957e8d" category="paragraph">加入Cloud Manager社群、追蹤後續討論或建立新討論。</block>
+  <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">文件</block>
+  <block id="3c313458d6e15dd2c4336e47118d0a8f" category="paragraph">您目前正在檢視的Cloud Manager文件。</block>
+  <block id="80b1b0d2b1ebf2b3cba2d25759801afd" category="list-text">mailto：ng-cloudmanager-feedback@netapp.com [意見反應電子郵件]</block>
+  <block id="bff60abbc46aceed0f73a3a4f6cfb123" category="paragraph">我們非常重視您的意見。提交意見反應、協助我們改善Cloud Manager。</block>
+  <block id="0659d428df833a806e29e65e632d380a" category="section-title">NetApp支援</block>
+  <block id="c91b5a63849b8d2db01014ed33192735" category="paragraph">除了上述的自我支援選項、您也可以與NetApp支援工程師合作、在您啟動支援之後解決任何問題。</block>
+  <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">步驟</block>
+  <block id="6c08c57e382a25a778455184cd9b1a4a" category="list-text">在Cloud Manager中、按一下*「說明」&gt;「支援」*。</block>
+  <block id="f5052c65917d7341726235d4d4941461" category="list-text">在「Technical Support（技術支援）」下選擇可用的選項之一：</block>
+  <block id="bece28b158ab337d9ed24b00d7d02cc7" category="list-text">按一下*致電我們*以尋找NetApp技術支援的電話號碼。</block>
+  <block id="efe81cff8e6f47ec59ef94167b76bf5a" category="list-text">按一下「*開啟問題*」、選取其中一個選項、然後按一下「*傳送*」。</block>
+  <block id="cbb1040836732e478409dacf7e45171a" category="paragraph">NetApp代表將審查您的案例、並盡快回覆您。</block>
+  <block id="f44753cd1ded9ad0818a4d62481460e9" category="summary">與鏡射原則不同的是、備份SnapVault 功能不一定會將特定的Snapshot複本複本複製到目的地Volume。如果您想要使用自己的原則而非預設原則、請務必瞭解備份原則的運作方式。</block>
+  <block id="87531525c3b816a3a29dbbcbcd9e58b1" category="doc">深入瞭解複寫原則</block>
+  <block id="77ae0badcc9669dcf09b0b6ddb602a5a" category="paragraph">與鏡射原則不同的是、備份 SnapVault （鏡射）原則會將特定的 Snapshot 複本複本複寫到目的地 Volume 。如果您想要使用自己的原則而非預設原則、請務必瞭解備份原則的運作方式。</block>
+  <block id="5a987691c26800bb72299080978208d0" category="section-title">瞭解 Snapshot 複本標籤與備份原則之間的關係</block>
+  <block id="84e1eb86d5601303f08cdde720ab00d5" category="paragraph">Snapshot 原則定義系統如何建立 Volume 的 Snapshot 複本。原則會指定何時建立 Snapshot 複本、保留多少複本、以及如何標記複本。例如、系統可能會每天在上午 12 ： 10 建立一個 Snapshot 複本、保留兩個最近的複本、並將其標示為「每日」。</block>
+  <block id="e80c18b83e4431b140cfd327235ef625" category="paragraph">備份原則包含指定要複寫到目的地 Volume 的標示 Snapshot 複本、以及要保留多少複本的規則。備份原則中定義的標籤必須符合 Snapshot 原則中定義的一或多個標籤。否則、系統將無法複寫任何 Snapshot 複本。</block>
+  <block id="ae8361f179144c2fabb67c8d6de83a5e" category="paragraph">例如、包含「每日」和「每週」標籤的備份原則、會導致複寫僅包含這些標籤的 Snapshot 複本。不會複寫其他 Snapshot 複本、如下列映像所示：</block>
+  <block id="9146f7d49f8f0b1c7684522621105c16" category="inline-image-macro">此圖顯示 Snapshot 原則、來源磁碟區、從 Snapshot 原則建立的 Snapshot 複本、然後根據備份原則將這些 Snapshot 複本複寫到目的地磁碟區、該原則會指定使用「每日」和「每週」標籤複寫 Snapshot 複本。</block>
+  <block id="917f71613f685fca1f5480f2402e4328" category="paragraph"><block ref="917f71613f685fca1f5480f2402e4328" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="078de5bc4b102703fbb5d5f16eab4ac5" category="section-title">預設原則和自訂原則</block>
+  <block id="82a50f0f6176439f52db3f00249bb062" category="paragraph">預設的 Snapshot 原則會建立每小時、每日和每週 Snapshot 複本、保留六個每小時、每天兩個和每週兩個 Snapshot 複本。</block>
+  <block id="ffd11b2f9d7cbf737e9c7fb470bccfa5" category="paragraph">您可以將預設的備份原則與預設的 Snapshot 原則輕鬆搭配使用。預設的備份原則會複寫每日和每週的 Snapshot 複本、保留七個每日和每 52 個每週 Snapshot 複本。</block>
+  <block id="148658bf400475bd13a5edab6c870d2f" category="paragraph">如果您建立自訂原則、則這些原則所定義的標籤必須相符。您可以使用 System Manager 建立自訂原則。</block>
+  <block id="958c15a697dc50afc44ab3fe2e061aec" category="summary">在兩個系統之間設定資料複寫之後、即可從 Cloud Manager 管理資料複寫排程和關係。</block>
+  <block id="2e4ca84ff13f65389599985c5d2a9f08" category="doc">管理排程與關係</block>
+  <block id="7a67cf78cd95f79c4c0a3698f1fc9113" category="list-text">按一下「*複寫*」。</block>
+  <block id="775f5846d28de12857c9c89ae5d4a6e1" category="list-text">檢閱資料複寫關係的狀態、確認它們是否健全。</block>
+  <block id="384cf3526eba01b7701f7fde08ba751e" category="admonition">如果關係的狀態為閒置且鏡射狀態未初始化、則您必須從目的地系統初始化關係、以便根據定義的排程進行資料複寫。您可以使用 System Manager 或命令列介面（ CLI ）初始化關係。當目的地系統故障後恢復連線時、這些狀態可能會出現。</block>
+  <block id="4a4fc2634c97e1e3949084431ae3f4e1" category="list-text">按一下動作功能表以取得磁碟區關係、然後選擇其中一個可用的動作。</block>
+  <block id="2dc72a54b6e5367898238d6dcb40d246" category="inline-image-macro">螢幕擷取畫面：顯示「複寫狀態」頁面中可用的動作清單。</block>
+  <block id="594fdfa890e958e4ffa58557886eb75c" category="paragraph"><block ref="594fdfa890e958e4ffa58557886eb75c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7e237ab45b209987e5eb6464c44abac5" category="paragraph">下表說明可用的動作：</block>
+  <block id="004bf6c9a40003140292e97330236c53" category="cell">行動</block>
+  <block id="b5a7adde1af5c87d7fd797b6245c2a39" category="cell">說明</block>
+  <block id="a82be0f551b8708bc08eb33cd9ded0cf" category="cell">資訊</block>
+  <block id="d94a71d39d4b5957a9cb08d7b25dc8d1" category="cell">顯示磁碟區關係的詳細資料：傳輸資訊、上次傳輸資訊、磁碟區詳細資料、以及指派給該關係的保護原則相關資訊。</block>
+  <block id="e4c38d6d45baf080943d323dd51a2ce8" category="cell">中斷</block>
+  <block id="f0cd8087559cf56fb0d34726dbd85d38" category="inline-link">瞭解如何設定目的地Volume以存取資料、並重新啟動ONTAP 來源Volume（英文）、請參閱本文檔</block>
+  <block id="eded94fe54d9a9c86f0d510180c58a5d" category="cell">中斷來源與目的地磁碟區之間的關係、並啟動目的地磁碟區以進行資料存取。當來源磁碟區因資料毀損、意外刪除或離線狀態等事件而無法提供資料時、通常會使用此選項。<block ref="7a7ac6ccb9be4e5f4f0b719a95b68333" category="inline-link-rx"></block></block>
+  <block id="45ada1a8b02e7bf10200aedcf56d13c8" category="cell">重新同步</block>
+  <block id="d41d8cd98f00b204e9800998ecf8427e" category="doc"></block>
+  <block id="56f83d4dac34839a8f3a283bafd276e8" category="paragraph">重新建立磁碟區之間的中斷關係、並根據定義的排程恢復資料複寫。</block>
+  <block id="f43fdb6878de7980d30d532ea44e0baf" category="admonition">當您重新同步磁碟區時、目的地磁碟區上的內容會被來源磁碟區上的內容覆寫。</block>
+  <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="inline-link">本文檔 ONTAP</block>
+  <block id="e990be7a16b6b4357342c71daaf2bbca" category="paragraph">若要瞭解如何執行反向重新同步、以重新同步從目的地磁碟區到來源磁碟區的資料、請前往<block ref="ab01f841914c89d9d9ffbe330b1e0c0f" category="inline-link-rx"></block>。</block>
+  <block id="fb1729afce23e1bd1840f0ba32ef8e91" category="cell">反轉重新同步</block>
+  <block id="fdd14ac0ba0eae4cebe22311577994f3" category="cell">反轉來源與目的地磁碟區的角色。來自原始來源 Volume 的內容會被目的地 Volume 的內容覆寫。當您想要重新啟動離線的來源 Volume 時、這很有幫助。在上次資料複寫與停用來源磁碟區之間寫入原始來源磁碟區的任何資料都不會保留。</block>
+  <block id="67d85e3bd91876173776dc6f189ff7ac" category="cell">編輯排程</block>
+  <block id="6f95f7aca41a993373d4a1096d61c7f0" category="cell">可讓您選擇不同的資料複寫排程。</block>
+  <block id="369e2ad9fb57b7fa6aea36dd7e48cf58" category="cell">編輯最大傳輸率</block>
+  <block id="35dbbeea8ab5e735a28c3b41ed25bca0" category="cell">可讓您編輯資料傳輸的最大速率（以每秒 KB 為單位）。</block>
+  <block id="06933067aafd48425d67bcb01bba5cb6" category="cell">更新</block>
+  <block id="16685aa35f9f2843a357407642b0d7d9" category="cell">開始遞增傳輸以更新目的地 Volume 。</block>
+  <block id="f2a6c498fb90ee345d997f888fce3b18" category="cell">刪除</block>
+  <block id="09cd2e52d52004647bc6c39549be0b94" category="cell">刪除來源與目的地磁碟區之間的資料保護關係、這表示磁碟區之間不再發生資料複寫。此動作不會啟動目的地 Volume 以進行資料存取。如果系統之間沒有其他資料保護關係、此動作也會刪除叢集對等關係和儲存VM（SVM）對等關係。</block>
+  <block id="b4feae198be8f3f2843284b7b6d126a4" category="paragraph">選取動作之後、 Cloud Manager 會更新關係或排程。</block>
+  <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律聲明</block>
+  <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">法律聲明提供版權聲明、商標、專利等存取權限。</block>
+  <block id="6016a2b341113bf496b719905398ecd2" category="section-title">版權</block>
+  <block id="09e95b77ffe81fe465a83ba99efad5c8" category="paragraph"><block ref="09e95b77ffe81fe465a83ba99efad5c8" category="inline-link-rx"></block></block>
+  <block id="126a02652da6de02962cf1b654fd6376" category="section-title">商標</block>
+  <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NetApp 、 NetApp 標誌及 NetApp 商標頁面上列出的標章均為 NetApp 、 Inc. 的商標。其他公司與產品名稱可能為其各自所有者的商標。</block>
+  <block id="7aa531e9acfe2b98e34d2c92fe9846ff" category="paragraph"><block ref="7aa531e9acfe2b98e34d2c92fe9846ff" category="inline-link-rx"></block></block>
+  <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">專利</block>
+  <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">如需最新的 NetApp 擁有專利清單、請參閱：</block>
+  <block id="d7f1fbcf9ce4e42f705add574d262b2c" category="paragraph"><block ref="d7f1fbcf9ce4e42f705add574d262b2c" category="inline-link-rx"></block></block>
+  <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">隱私權政策</block>
+  <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
+  <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">開放原始碼</block>
+  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知檔案提供有關 NetApp 軟體所使用之協力廠商版權與授權的資訊。</block>
+  <block id="4940124e8487cb4ea36f1511a195cf66" category="inline-link-macro">Cloud Manager 3.9 注意事項</block>
+  <block id="c069fcc68c5dfa73ccc99924c836cae9" category="paragraph"><block ref="c069fcc68c5dfa73ccc99924c836cae9" category="inline-link-macro-rx"></block></block>
+  <block id="95c3127441b4989e3d78b50920629c66" category="summary">瞭解複寫服務的新功能。</block>
+  <block id="490414e0366b091220802d406e52c076" category="doc">新功能</block>
+  <block id="d798cbf5a08fbeb9fdd3652e5b00bb4c" category="section-title">2021年9月2日</block>
+  <block id="6c88f9e17d9019e00177d64f9db55d2e" category="section-title">支援Amazon FSX for ONTAP Sfy</block>
+  <block id="59dfc17500b1e0b8d1824eb8b1413080" category="paragraph">您現在可以將資料從Cloud Volumes ONTAP 一套不間斷的系統或內部部署ONTAP 的一套功能的叢集複寫到Amazon FSX for ONTAP 整個檔案系統。</block>
+  <block id="40f78d193b858589ad7df4dd4ce61ad6" category="inline-link">瞭解如何設定資料複寫</block>
+  <block id="1e56755e05ec049b30c49b9d53744ca1" category="paragraph"><block ref="0337e364432fca0f343e5f2660661b77" category="inline-link-rx"></block>。</block>
+  <block id="5057fdb214d9f3773bc386ba2aa1fcb0" category="section-title">2021年5月5日</block>
+  <block id="1473f0729c8bea54a5077a19ab764c47" category="section-title">重新設計的介面</block>
+  <block id="5a0a1bceb9fa4494f5bd231c6eb87a5b" category="paragraph">我們重新設計了「複寫」索引標籤、以方便使用、並符合Cloud Manager使用者介面的目前外觀與風格。</block>
+  <block id="0f9405518138d20fd96d78fe19dabf84" category="inline-image-macro">Cloud Manager中重新設計的「複寫」索引標籤快照、顯示磁碟區關係清單。</block>
+  <block id="afd129f297b503a0e765f8dcc6f0d4d4" category="paragraph"><block ref="afd129f297b503a0e765f8dcc6f0d4d4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="aeeec0576922eb4490b5fabadc6c4e36" category="summary">NetApp SnapMirror可透過LAN或WAN高速複寫資料、因此您可以在虛擬與傳統環境中同時獲得高資料可用度與快速資料複寫。當您將資料複寫到NetApp儲存系統並持續更新次要資料時、資料會保持最新狀態、並在需要時隨時保持可用。不需要外部複寫伺服器。</block>
+  <block id="e60519215887d589e148f68a2f5d2a06" category="doc">深入瞭解複寫服務</block>
+  <block id="98f770b0af18ca763421bac22b4b6805" category="section-title">功能</block>
+  <block id="58598c037819ab3e58b8ee6d0d634246" category="list-text">以高可用度確保災難恢復環境的可靠性。</block>
+  <block id="6c12db213eb53a8ef7d470254e0395be" category="list-text">效能優異的區塊層級複寫ONTAP 功能可在不中斷的情況下快速有效地進行、並提供精細的災難恢復和備份還原點。</block>
+  <block id="20b4f77bd00b4f63a49ec8e08f3bf6a6" category="section-title">成本</block>
+  <block id="51d8157d48cfe9c64b3f0f386d2e4e7b" category="paragraph">NetApp並不收取使用複寫服務的費用、但您必須向雲端供應商查詢適用的資料進出費用。</block>
+  <block id="744db3ac634a7aa94269971ca3dc965e" category="section-title">支援的工作環境</block>
+  <block id="33a6dd69443b97d9eae9c88809da5d88" category="paragraph">Cloud Manager可在下列工作環境類型之間進行資料複寫。</block>
+  <block id="9fd9b4e1af5d0e8b46abbd52a5c740cd" category="cell">來源工作環境</block>
+  <block id="e4543e565352b9e4f4e71c2f648026f6" category="cell">支援的目標工作環境</block>
+  <block id="117bdbda976fe8b3212bc3b6327a0a1b" category="cell">Cloud Volumes ONTAP</block>
+  <block id="18cf072964a583150dd247485ba75b92" category="list-text">Amazon FSX for ONTAP Sf</block>
+  <block id="c17ce6a7cdcb97581c6d5603ec7d447a" category="list-text">內部ONTAP 使用的叢集</block>
+  <block id="b553c40a28c07760917a84d00649f7fd" category="section-title">資料複寫的運作方式</block>
+  <block id="e445c14748daf3ca002770b51d99fc5e" category="paragraph">Cloud Manager ONTAP 使用SnapMirror和SnapVault SnapMirror技術、簡化個別支援的各個作業系統上磁碟區之間的資料複寫作業。您只需識別來源磁碟區和目的地磁碟區、然後選擇複寫原則和排程即可。</block>
+  <block id="cac80a54492c3c29d5dde82753de238c" category="paragraph">對於NetApp、Cloud Manager會購買所需的磁碟、設定關係、套用複寫原則、然後在磁碟區之間開始基礎傳輸。Cloud Volumes ONTAP</block>
+  <block id="f2c34e95577ee850c803e71a908cf1ef" category="admonition">基礎傳輸包含來源資料的完整複本。後續傳輸包含來源資料的差異複本。</block>
+  <block id="cc20b848be9552c96e9f46ed40db533d" category="section-title">支援的資料保護組態</block>
+  <block id="6d6b0ddfbb8cf202faee1b560ec76688" category="paragraph">Cloud Manager 支援簡單易用、可展開及串聯的資料保護組態：</block>
+  <block id="c1400343880c81f40f5a3faf804c86ae" category="list-text">在簡單的組態中、從磁碟區 A 複寫到磁碟區 B</block>
+  <block id="efec681cbb459f433d2291a71e215461" category="list-text">在扇出組態中、從磁碟區 A 複寫到多個目的地。</block>
+  <block id="7a850141034065e0218996db71a2ef0c" category="list-text">在串聯組態中、從磁碟區 A 複寫到磁碟區 B 、從磁碟區 B 複寫到磁碟區 C</block>
+  <block id="b2ff5c112923ab1a84f9024c034ae3c3" category="summary">您可以在 Cloud Manager 工作環境之間複寫資料。您可以選擇一次性資料複寫來在雲端之間來回移動資料、或選擇重複排程來進行災難恢復或長期保留。</block>
+  <block id="874fbc5828fab7b54057e8b64a511b45" category="paragraph">在 Cloud Manager 中設定資料複寫時、您可能需要協助選擇複寫原則。複寫原則定義儲存系統如何將資料從來源磁碟區複寫到目的地磁碟區。</block>
+  <block id="e40495076bb4b5e4783f1d1ee0ad0a16" category="section-title">複寫原則的功能</block>
+  <block id="e19e3a549d24cbd0e2a4d7afde5135b9" category="paragraph">這個作業系統會自動建立稱為 Snapshot 複本的備份。 ONTAPSnapshot 複本是磁碟區的唯讀映像、可在某個時間點擷取檔案系統的狀態。</block>
+  <block id="651f76dd5d1cb2befad7f11fa1e9daaa" category="paragraph">當您在系統之間複寫資料時、會將 Snapshot 複本從來源磁碟區複寫到目的地磁碟區。複寫原則會指定要從來源磁碟區複寫到目的地磁碟區的 Snapshot 複本。</block>
+  <block id="85fff253f12e639aac3437b2c24d5139" category="admonition">複寫原則也稱為「 _protection 」原則、因為它們採用 SnapMirror 和 SnapVault SnapMirror 技術、可提供災難恢復保護、以及磁碟對磁碟備份與還原。</block>
+  <block id="662a62e668373d0927ec7c1bfeb2b319" category="paragraph">下圖顯示 Snapshot 複本與複寫原則之間的關係：</block>
+  <block id="3802602e17f5cc165c7507f1c9a2e847" category="inline-image-macro">此圖顯示來源磁碟區上的 Snapshot 複本、以及指定從來源磁碟區複寫所有或特定 Snapshot 複本至目的地磁碟區的複寫原則。</block>
+  <block id="81818114bafdd6d3c20723bfbb51f97c" category="paragraph"><block ref="81818114bafdd6d3c20723bfbb51f97c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0f237b0feffecdddaf6649c2d6d7809a" category="section-title">複寫原則類型</block>
+  <block id="ef8a1d695c35e57928d4b85c35185a8a" category="paragraph">複寫原則有三種類型：</block>
+  <block id="b07d46952856e1f9bc81741e810a135d" category="list-text">_Mirror_ 原則會將新建立的 Snapshot 複本複寫到目的地 Volume 。</block>
+  <block id="5ee26df8a5cbc26419cd11a2a77ad92d" category="paragraph">您可以使用這些 Snapshot 複本來保護來源磁碟區、以便做好災難恢復或一次性資料複寫的準備。您可以隨時啟動目的地 Volume 以進行資料存取。</block>
+  <block id="9bca25bd28efdcfd3aebccab5c918fcb" category="list-text">_Backup 原則會將特定的 Snapshot 複本複寫到目的地磁碟區、通常會將它們保留較長的時間、而不會超過來源磁碟區的時間。</block>
+  <block id="91934bdbfdc3c5214382994a56a46886" category="paragraph">當資料毀損或遺失時、您可以從這些 Snapshot 複本還原資料、並保留這些複本以符合標準及其他治理相關用途。</block>
+  <block id="264d1d85979e565f376768c29ac5980a" category="list-text">鏡射與備份原則提供災難恢復與長期保留。</block>
+  <block id="c5e319c770118f998f576ebb9b10069b" category="paragraph">每個系統都有預設的鏡射與備份原則、適用於許多情況。如果您發現需要自訂原則、可以使用 System Manager 建立自己的原則。</block>
+  <block id="d9ae190c29f834ec7084e50731eb8fea" category="paragraph">下列影像顯示鏡射與備份原則之間的差異。鏡射原則會鏡射來源磁碟區上可用的 Snapshot 複本。</block>
+  <block id="5a7549c9e8b1c18d5706ec474c2a8ba4" category="inline-image-macro">此圖顯示來源磁碟區上的 Snapshot 複本、以及鏡射來源磁碟區的 Mirror 目的地磁碟區。</block>
+  <block id="144abdc56cc3fbdbfae0ef89d327605b" category="paragraph"><block ref="144abdc56cc3fbdbfae0ef89d327605b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="35b902a7b4de8c8923d5c5b39b814e95" category="paragraph">備份原則通常會保留快照複本的時間比保留在來源磁碟區上的時間長：</block>
+  <block id="bf2150ef9467439727e9ba26af10d436" category="inline-image-macro">此圖顯示來源 Volume 上的 Snapshot 複本、以及包含更多 Snapshot 複本的備份目的地 Volume 、因為 SnapVault 此功能會保留 Snapshot 複本以供長期保留。</block>
+  <block id="ad8bcd8268bd244944d22d0323e8d319" category="paragraph"><block ref="ad8bcd8268bd244944d22d0323e8d319" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="aa03d16eacb954c7af08d5001cd67507" category="doc">設定資料複寫</block>
+  <block id="745cc81e54713a1702ada65f4b222bce" category="paragraph">您可以ONTAP 選擇一次性資料複寫來進行資料傳輸、或是選擇重複排程來進行災難恢復或長期保留、以便在各種不間斷的工作環境之間複寫資料。例如、您可以設定內部 ONTAP 系統的資料複寫、以 Cloud Volumes ONTAP 供災難恢復之用。</block>
+  <block id="992753e7f234853a9e0f96d1ff637271" category="section-title">資料複寫需求</block>
+  <block id="3f5c98f2da3fd65fbbfa955b13a433ab" category="paragraph">在複寫資料之前、您應該確認Cloud Volumes ONTAP 是否符合關於下列項目的特定要求：用作ONTAP 支援的功能來支援下列ONTAP 項目：</block>
+  <block id="8e7eaac4ef6ddba0d9f93228ce3ac6e7" category="list-text">工作環境</block>
+  <block id="4afa74830ae584f2b792dfe5b6c79ccc" category="list-text">如果您尚未建立資料複寫關係中的來源和目標、則必須建立工作環境。</block>
+  <block id="64c9a9d3cd7c3ca76cf19b78a96c9b79" category="inline-link">建立Amazon FSX以利ONTAP 不工作環境</block>
+  <block id="6cd346b36825d1f1cef046571571fce0" category="list-text"><block ref="6cd346b36825d1f1cef046571571fce0" category="inline-link-rx"></block></block>
+  <block id="a3272fd5c4bd1903de9b1b2f5e1665a8" category="inline-link">在Cloud Volumes ONTAP AWS中啟動</block>
+  <block id="5fc68dd6c2f9e8f9867008288922972c" category="list-text"><block ref="5fc68dd6c2f9e8f9867008288922972c" category="inline-link-rx"></block></block>
+  <block id="70c84621a7336f391b4b7df86b5f1396" category="inline-link">在Cloud Volumes ONTAP Azure中推出功能</block>
+  <block id="382c836de95fd7a0d956bd916d408106" category="list-text"><block ref="382c836de95fd7a0d956bd916d408106" category="inline-link-rx"></block></block>
+  <block id="ce3503849689227dd8014f8ed3f5cb5e" category="inline-link">在Cloud Volumes ONTAP GCP中推出</block>
+  <block id="b1fc335b745b5be1ddedded19d077bf9" category="list-text"><block ref="b1fc335b745b5be1ddedded19d077bf9" category="inline-link-rx"></block></block>
+  <block id="6c0fb6078ec778ca2319e375a19e994b" category="inline-link">新增現有Cloud Volumes ONTAP 的系統</block>
+  <block id="c10b8a77856c1097f8b3038f1bfab45b" category="list-text"><block ref="c10b8a77856c1097f8b3038f1bfab45b" category="inline-link-rx"></block></block>
+  <block id="a1ebf612d281c8e7fb16bbfa253b9627" category="inline-link">探索 ONTAP 叢集</block>
+  <block id="49aaf65c31a811a37b2627a951f6f6d2" category="list-text"><block ref="49aaf65c31a811a37b2627a951f6f6d2" category="inline-link-rx"></block></block>
+  <block id="3fbe74eae84714fcfdd21edafe54f77f" category="list-text">版本需求</block>
+  <block id="5ab11c0b1a095a5aa6623bf54430fb4b" category="list-text">在複寫資料之前、您應該先確認來源和目的地磁碟區是否執行相容 ONTAP 的功能性更新。</block>
+  <block id="49a1e754247eba0034ec2a2b3dea46b0" category="inline-link">檢視SnapMirror ONTAP 關係的相容版本</block>
+  <block id="b8c6e83fa255fcfab352a5b54339fdb8" category="paragraph"><block ref="b8c6e83fa255fcfab352a5b54339fdb8" category="inline-link-rx"></block></block>
+  <block id="fe6efbb95f9a85a506ca5269c7f8ff90" category="list-text">具體需求 Cloud Volumes ONTAP</block>
+  <block id="889d45df47a3ead91725048aa6da9442" category="list-text">執行個體的安全性群組必須包含必要的傳入和傳出規則：特別是 ICMP 和連接埠 11104 和 11105 的規則。</block>
+  <block id="56a907169092bf547ac6f962beae2e1a" category="paragraph">這些規則包含在預先定義的安全性群組中。</block>
+  <block id="c08b01fe5c09939cdbabcb370734dad8" category="list-text">若要在 Cloud Volumes ONTAP 不同子網路中的兩個子網路之間複寫資料、必須將子網路路由在一起（這是預設設定）。</block>
+  <block id="d5c8c6b85589a3255105df8b8a5a8e77" category="list-text">若要在Cloud Volumes ONTAP 不同雲端供應商的兩個供應鏈系統之間複寫資料、您必須在虛擬網路之間建立VPN連線。</block>
+  <block id="4f98fe32c8059fcb89742310b7175e7f" category="list-text">特定於叢集的需求 ONTAP</block>
+  <block id="8c4a805dde66a7461e7760fe982d066f" category="list-text">必須安裝主動式 SnapMirror 授權。</block>
+  <block id="e133ed2609aff998f4ad7507f5e823eb" category="list-text">如果叢集位於內部部署環境中、您應該可以從公司網路連線到AWS、Azure或GCP中的虛擬網路。這通常是VPN連線。</block>
+  <block id="1fbce003d68708feb24931b9e6366f50" category="list-text">叢集必須符合額外的子網路、連接埠、防火牆和叢集需求。 ONTAP</block>
+  <block id="d7bb556723e915c43fe4fd9b0f90d545" category="inline-link">請參閱ONTAP 《知識庫》文件中的叢集對等條件</block>
+  <block id="54aa7fca826fcb0f6caefb80a82fe037" category="paragraph"><block ref="54aa7fca826fcb0f6caefb80a82fe037" category="inline-link-rx"></block></block>
+  <block id="4f473a2a941d4fd7b4a68e3cd98e934c" category="list-text">Amazon FSX for ONTAP Sf.的特定需求</block>
+  <block id="e895824a462fdee602e050151c64f0a6" category="list-text">Amazon FSX ONTAP for the S動運轉 環境必須是資料複寫關係的目標。</block>
+  <block id="7002d9ba5a8e7d19055405e260941870" category="paragraph">來源可以Cloud Volumes ONTAP 是不一樣的、也可以是內部ONTAP 的不全叢集。</block>
+  <block id="fec5e9f11ead982ba633a364695b9cff" category="list-text">如果Cloud Volumes ONTAP 來源為「支援功能」、請啟用VPC對等或使用「傳輸閘道」來確保VPC之間的連線能力。</block>
+  <block id="4bf49185216f4e917fd8dcc50ee1ff2c" category="list-text">如果ONTAP 內部使用的是內部使用的叢集、請使用Direct Connect或VPN連線、確保內部部署網路與AWS VPC之間的連線能力。</block>
+  <block id="58e046b3f4ec304e4456cda8151a574b" category="section-title">在系統之間複寫資料</block>
+  <block id="ab180709f75f8b8d74709444b839ccd3" category="paragraph">您可以選擇一次性資料複寫來複寫資料、這有助於您在雲端之間移動資料、或是循環排程、以協助進行災難恢復或長期保留。</block>
+  <block id="29e71d65fc647320e822efb6ec422c56" category="list-text">在「畫版」頁面上、選取包含來源磁碟區的工作環境、然後將其拖曳至您要複寫磁碟區的工作環境。</block>
+  <block id="f058b2239a935219edfc3818d7b5cb9e" category="inline-image-macro">螢幕擷取畫面：顯示工作環境置於另一個工作環境之上、以開始資料複寫程序。</block>
+  <block id="f0fb2fde0c29810d08233a36012cb972" category="paragraph"><block ref="f0fb2fde0c29810d08233a36012cb972" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="362a388c30edcb2f99cceb3fe86d98c1" category="list-text">*來源與目的地對等設定*：如果出現此頁面、請選取叢集對等關係的所有叢集間生命體。</block>
+  <block id="bea31cd643e991ddda33528781bb08e5" category="paragraph">叢集間網路的設定應讓叢集對等端點具有 _ 配對式全網狀連線 _ 、這表示叢集對等關係中的每一對叢集在其所有叢集間生命體之間都具有連線能力。</block>
+  <block id="2de4794fb8257073e92d6ea494fd0157" category="paragraph">如果 ONTAP 來源或目的地是包含多個 lifs 的 Sourc時 叢集、就會出現這些頁面。</block>
+  <block id="a6e88d0494a8fa6f3ae3b6727b0d269a" category="list-text">*來源Volume選擇*：選取您要複寫的磁碟區。</block>
+  <block id="36e07509be5c7f032ab917fdca1c3155" category="list-text">*目的地磁碟類型與分層*：如果目標Cloud Volumes ONTAP 是一個支援系統、請選取目的地磁碟類型、然後選擇是否要啟用資料分層。</block>
+  <block id="fffe1c574a9d13338bd57b8f437e8b38" category="list-text">*目的地Volume Name*：指定目的地Volume名稱、然後選擇目的地Aggregate。</block>
+  <block id="a72bddbb2c5ec4276f61eb5d4c72d29e" category="paragraph">如果目的地是ONTAP 一個不必要的叢集、您也必須指定目的地儲存VM。</block>
+  <block id="70b03b0b5fddb323cd5727f0aff116da" category="list-text">*最大傳輸率*：指定資料傳輸的最大傳輸率（以百萬位元組/秒為單位）。</block>
+  <block id="c4d4c57bab69ea2730de16df7ca7f541" category="paragraph">您應該限制傳輸率。無限速率可能會對其他應用程式的效能造成負面影響、而且可能會影響您的網際網路效能。</block>
+  <block id="dc7023569df1ae3b00637768e0eda066" category="list-text">*複寫原則*：選擇預設原則或按一下*其他原則*、然後選取其中一個進階原則。</block>
+  <block id="43b69288e2e4056e2603dc7b20958252" category="inline-link-macro">深入瞭解複寫原則</block>
+  <block id="38ae0f8e71302f90ed2bd78cc3558be1" category="paragraph">如需協助、 <block ref="aa986145ecc84d384c81421dbd7256f8" category="inline-link-macro-rx"></block>。</block>
+  <block id="94b8e29e9b4ae2edec5679fafc448461" category="inline-link-macro">瞭解備份原則的運作方式</block>
+  <block id="d0c8bcc8105dd12af5250cd475e35814" category="paragraph">如果您選擇自訂備份 SnapVault （英文）原則、則與原則相關的標籤必須符合來源 Volume 上 Snapshot 複本的標籤。如需詳細資訊、 <block ref="1da422ecee672d98d1632cce950d0eeb" category="inline-link-macro-rx"></block>。</block>
+  <block id="d3b2b050bb9494cae757b48c9e54e869" category="list-text">*排程*：選擇一次性複本或週期性排程。</block>
+  <block id="eab21f14d3f6250b2de779be87b8404e" category="paragraph">有多個預設排程可供使用。如果您想要不同的排程、則必須使用 System Manager 在 _destination_ 叢集上建立新的排程。</block>
+  <block id="b651c9a4bed137033ce440a73927ffcf" category="list-text">*審查*：檢閱您的選擇、然後按一下「*執行*」。</block>
+  <block id="eed124d262a3b5245da6792903502a1f" category="paragraph">Cloud Manager 會啟動資料複寫程序。您可以在複寫服務中檢視磁碟區關係的詳細資料。</block>
+  <block id="3c10116b37b407ac79092a38ffb292e4" category="summary">在您透過NetApp技術支援開啟支援案例之前、您必須先將NetApp支援網站帳戶新增至Cloud Manager、然後註冊以取得支援。</block>
+  <block id="42748df9eaa0be17ddc5cc1593cf57ab" category="doc">註冊以取得支援</block>
+  <block id="aeaeee19a7c393222e407a525cf01991" category="section-title">新增一個NSS帳戶</block>
+  <block id="de2241fea60d98698faaa196ff73ee80" category="paragraph">「支援儀表板」可讓您從單一位置新增及管理所有NetApp支援網站帳戶。</block>
+  <block id="5be2593b5948f30a15179a32daa73ee2" category="inline-link">註冊一項</block>
+  <block id="14b05cf61f1aba58d38b393e69b69538" category="list-text">如果您還沒有 NetApp 支援網站帳戶、<block ref="0a8e82436ea73fe635862cfba3acf101" category="inline-link-rx"></block>。</block>
+  <block id="0046efb3377274ff3215d4b30269809e" category="list-text">在Cloud Manager主控台右上角、按一下「說明」圖示、然後選取*「支援」*。</block>
+  <block id="b50f0a46135bcb7083b1f2f82032fc26" category="inline-image-macro">「說明」功能表的快照、其中「支援」是第一個列出的選項</block>
+  <block id="868d9aa88f16ea923af1d15eac5d2647" category="paragraph"><block ref="868d9aa88f16ea923af1d15eac5d2647" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d17d6b5dafebab6b7659da8850737e70" category="list-text">按一下「*」「nss管理」&gt;「新增nssAccount」*。</block>
+  <block id="8aaf101e623c543c7eef3c65f6233366" category="list-text">出現提示時、按一下*繼續*以重新導向至Microsoft登入頁面。</block>
+  <block id="19d089db572ee6a1e154a0c9c9e57bfd" category="paragraph">NetApp使用Microsoft Azure Active Directory做為身分識別供應商、提供專為支援與授權所設計的驗證服務。</block>
+  <block id="465ec6d5eafa3524c948c99d8bfcd306" category="list-text">在登入頁面上、提供您的NetApp支援網站註冊電子郵件地址和密碼、以執行驗證程序。</block>
+  <block id="f5fb4199485234c409525f430b737010" category="paragraph">此動作可讓Cloud Manager使用您的NSS帳戶。</block>
+  <block id="b4c6a2f33e7b2a38495546b8d5cd8e84" category="paragraph">附註：帳戶必須是客戶層級的帳戶（非來賓帳戶或臨時帳戶）。</block>
+  <block id="fc65ebd4739f2f8ca46062a8280faea9" category="section-title">註冊您的帳戶以取得支援</block>
+  <block id="3e080914efe0d0ca025439fbb68d437f" category="paragraph">支援註冊可從支援儀表板的Cloud Manager取得。</block>
+  <block id="fb07bf6b7698dbe934b8b2164d915484" category="list-text">在* Resources（資源）*選項卡中，單擊* Register for Support*（註冊以獲得支持*）。</block>
+  <block id="392fb0270d0d84dbc3fdf8c67da1e5ad" category="list-text">選取您要登錄的NSS認證、然後按一下「*登錄*」。</block>
+  <block id="7ff191df90fac0fa94ab5c2b5101a5e9" category="sidebar">所有Cloud Manager文件</block>
+  <block id="7596270426e8c5f92be308ff330e0e64" category="sidebar">複寫文件</block>
+  <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">版本資訊</block>
+  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">開始使用</block>
+  <block id="c27a58445f6be9881526a37e46bb7d26" category="sidebar">管理資料複寫</block>
+  <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">概念</block>
+  <block id="fa26829830efe73376071e3b30f66d6a" category="sidebar">複寫原則</block>
+  <block id="9f02509e5496e861df4c341dba05386e" category="sidebar">備份原則</block>
+  <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">知識與支援</block>
+  <block id="96dbe21e840f318daaf871cafa9f1d1f" category="sidebar">使用複寫服務</block>
+  <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">部落格社群</block>
+  <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">NetApp社群</block>
+  <block id="ff6c37cbc252e306a6b4e390ec13cbc1" category="sidebar">Cloud Central部落格</block>
+  <block id="ad203e818e0c9d7f42f1c260b33875f3" category="sidebar">雲端網路研討會</block>
+</blocks>

@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: whats-new.html 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes' 
+summary: 瞭解複寫服務的新功能。 
+---
+= 新功能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+瞭解複寫服務的新功能。
+
+
+
+== 2021年9月2日
+
+
+
+=== 支援Amazon FSX for ONTAP Sfy
+
+您現在可以將資料從Cloud Volumes ONTAP 一套不間斷的系統或內部部署ONTAP 的一套功能的叢集複寫到Amazon FSX for ONTAP 整個檔案系統。
+
+https://docs.netapp.com/us-en/cloud-manager-replication/task-replicating-data.html["瞭解如何設定資料複寫"]。
+
+
+
+== 2021年5月5日
+
+
+
+=== 重新設計的介面
+
+我們重新設計了「複寫」索引標籤、以方便使用、並符合Cloud Manager使用者介面的目前外觀與風格。
+
+image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-replication/main/media/replication.gif["Cloud Manager中重新設計的「複寫」索引標籤快照、顯示磁碟區關係清單。"]

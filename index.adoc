@@ -1,0 +1,16 @@
+---
+layout: astra 
+sidebar: sidebar 
+permalink: index.html 
+lead: Replicate data between ONTAP storage systems to support backup and disaster recovery to the cloud or between clouds. 
+summary: 在ONTAP 支援備份與災難恢復的不間斷儲存系統之間或雲端之間複寫資料。 
+---
+= 複寫文件
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

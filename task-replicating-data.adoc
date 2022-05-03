@@ -1,0 +1,123 @@
+---
+sidebar: sidebar 
+permalink: task-replicating-data.html 
+keywords: ontap, cluster, discover, manage, cloud manager, hybrid cloud, replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, fanout, cascade, source, destination, schedule, relationship, max transfer, maximum transfer rate, rate, transfer rate, intercluster lif, replication requirement, requirements, disaster recovery, DR, archive, archiving, retention, amazon fsx for ontap, fsx for ontap 
+summary: 您可以在 Cloud Manager 工作環境之間複寫資料。您可以選擇一次性資料複寫來在雲端之間來回移動資料、或選擇重複排程來進行災難恢復或長期保留。 
+---
+= 設定資料複寫
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以ONTAP 選擇一次性資料複寫來進行資料傳輸、或是選擇重複排程來進行災難恢復或長期保留、以便在各種不間斷的工作環境之間複寫資料。例如、您可以設定內部 ONTAP 系統的資料複寫、以 Cloud Volumes ONTAP 供災難恢復之用。
+
+
+
+== 資料複寫需求
+
+在複寫資料之前、您應該確認Cloud Volumes ONTAP 是否符合關於下列項目的特定要求：用作ONTAP 支援的功能來支援下列ONTAP 項目：
+
+工作環境:: 如果您尚未建立資料複寫關係中的來源和目標、則必須建立工作環境。
++
+--
+* https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html["建立Amazon FSX以利ONTAP 不工作環境"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-aws.html["在Cloud Volumes ONTAP AWS中啟動"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["在Cloud Volumes ONTAP Azure中推出功能"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["在Cloud Volumes ONTAP GCP中推出"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-adding-systems.html["新增現有Cloud Volumes ONTAP 的系統"^]
+* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["探索 ONTAP 叢集"^]
+
+
+--
+版本需求:: 在複寫資料之前、您應該先確認來源和目的地磁碟區是否執行相容 ONTAP 的功能性更新。
++
+--
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["檢視SnapMirror ONTAP 關係的相容版本"^]
+
+--
+具體需求 Cloud Volumes ONTAP::
++
+--
+* 執行個體的安全性群組必須包含必要的傳入和傳出規則：特別是 ICMP 和連接埠 11104 和 11105 的規則。
++
+這些規則包含在預先定義的安全性群組中。
+
+* 若要在 Cloud Volumes ONTAP 不同子網路中的兩個子網路之間複寫資料、必須將子網路路由在一起（這是預設設定）。
+* 若要在Cloud Volumes ONTAP 不同雲端供應商的兩個供應鏈系統之間複寫資料、您必須在虛擬網路之間建立VPN連線。
+
+
+--
+特定於叢集的需求 ONTAP::
++
+--
+* 必須安裝主動式 SnapMirror 授權。
+* 如果叢集位於內部部署環境中、您應該可以從公司網路連線到AWS、Azure或GCP中的虛擬網路。這通常是VPN連線。
+* 叢集必須符合額外的子網路、連接埠、防火牆和叢集需求。 ONTAP
++
+https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["請參閱ONTAP 《知識庫》文件中的叢集對等條件"^]
+
+
+
+--
+Amazon FSX for ONTAP Sf.的特定需求::
++
+--
+* Amazon FSX ONTAP for the S動運轉 環境必須是資料複寫關係的目標。
++
+來源可以Cloud Volumes ONTAP 是不一樣的、也可以是內部ONTAP 的不全叢集。
+
+* 如果Cloud Volumes ONTAP 來源為「支援功能」、請啟用VPC對等或使用「傳輸閘道」來確保VPC之間的連線能力。
+* 如果ONTAP 內部使用的是內部使用的叢集、請使用Direct Connect或VPN連線、確保內部部署網路與AWS VPC之間的連線能力。
+
+
+--
+
+
+
+
+== 在系統之間複寫資料
+
+您可以選擇一次性資料複寫來複寫資料、這有助於您在雲端之間移動資料、或是循環排程、以協助進行災難恢復或長期保留。
+
+.步驟
+. 在「畫版」頁面上、選取包含來源磁碟區的工作環境、然後將其拖曳至您要複寫磁碟區的工作環境。
++
+image:screenshot_drag_and_drop.gif["螢幕擷取畫面：顯示工作環境置於另一個工作環境之上、以開始資料複寫程序。"]
+
+. *來源與目的地對等設定*：如果出現此頁面、請選取叢集對等關係的所有叢集間生命體。
++
+叢集間網路的設定應讓叢集對等端點具有 _ 配對式全網狀連線 _ 、這表示叢集對等關係中的每一對叢集在其所有叢集間生命體之間都具有連線能力。
+
++
+如果 ONTAP 來源或目的地是包含多個 lifs 的 Sourc時 叢集、就會出現這些頁面。
+
+. *來源Volume選擇*：選取您要複寫的磁碟區。
+. *目的地磁碟類型與分層*：如果目標Cloud Volumes ONTAP 是一個支援系統、請選取目的地磁碟類型、然後選擇是否要啟用資料分層。
+. *目的地Volume Name*：指定目的地Volume名稱、然後選擇目的地Aggregate。
++
+如果目的地是ONTAP 一個不必要的叢集、您也必須指定目的地儲存VM。
+
+. *最大傳輸率*：指定資料傳輸的最大傳輸率（以百萬位元組/秒為單位）。
++
+您應該限制傳輸率。無限速率可能會對其他應用程式的效能造成負面影響、而且可能會影響您的網際網路效能。
+
+. *複寫原則*：選擇預設原則或按一下*其他原則*、然後選取其中一個進階原則。
++
+如需協助、 link:concept-replication-policies.html["深入瞭解複寫原則"]。
+
++
+如果您選擇自訂備份 SnapVault （英文）原則、則與原則相關的標籤必須符合來源 Volume 上 Snapshot 複本的標籤。如需詳細資訊、 link:concept-backup-policies.html["瞭解備份原則的運作方式"]。
+
+. *排程*：選擇一次性複本或週期性排程。
++
+有多個預設排程可供使用。如果您想要不同的排程、則必須使用 System Manager 在 _destination_ 叢集上建立新的排程。
+
+. *審查*：檢閱您的選擇、然後按一下「*執行*」。
+
+
+Cloud Manager 會啟動資料複寫程序。您可以在複寫服務中檢視磁碟區關係的詳細資料。

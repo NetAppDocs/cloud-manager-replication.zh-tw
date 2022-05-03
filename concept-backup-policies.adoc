@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: concept-backup-policies.html 
+keywords: snapvault, archive, archiving, retention 
+summary: 與鏡射原則不同的是、備份SnapVault 功能不一定會將特定的Snapshot複本複本複製到目的地Volume。如果您想要使用自己的原則而非預設原則、請務必瞭解備份原則的運作方式。 
+---
+= 深入瞭解複寫原則
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+與鏡射原則不同的是、備份 SnapVault （鏡射）原則會將特定的 Snapshot 複本複本複寫到目的地 Volume 。如果您想要使用自己的原則而非預設原則、請務必瞭解備份原則的運作方式。
+
+
+
+== 瞭解 Snapshot 複本標籤與備份原則之間的關係
+
+Snapshot 原則定義系統如何建立 Volume 的 Snapshot 複本。原則會指定何時建立 Snapshot 複本、保留多少複本、以及如何標記複本。例如、系統可能會每天在上午 12 ： 10 建立一個 Snapshot 複本、保留兩個最近的複本、並將其標示為「每日」。
+
+備份原則包含指定要複寫到目的地 Volume 的標示 Snapshot 複本、以及要保留多少複本的規則。備份原則中定義的標籤必須符合 Snapshot 原則中定義的一或多個標籤。否則、系統將無法複寫任何 Snapshot 複本。
+
+例如、包含「每日」和「每週」標籤的備份原則、會導致複寫僅包含這些標籤的 Snapshot 複本。不會複寫其他 Snapshot 複本、如下列映像所示：
+
+image:diagram_replication_snapvault_policy.png["此圖顯示 Snapshot 原則、來源磁碟區、從 Snapshot 原則建立的 Snapshot 複本、然後根據備份原則將這些 Snapshot 複本複寫到目的地磁碟區、該原則會指定使用「每日」和「每週」標籤複寫 Snapshot 複本。"]
+
+
+
+== 預設原則和自訂原則
+
+預設的 Snapshot 原則會建立每小時、每日和每週 Snapshot 複本、保留六個每小時、每天兩個和每週兩個 Snapshot 複本。
+
+您可以將預設的備份原則與預設的 Snapshot 原則輕鬆搭配使用。預設的備份原則會複寫每日和每週的 Snapshot 複本、保留七個每日和每 52 個每週 Snapshot 複本。
+
+如果您建立自訂原則、則這些原則所定義的標籤必須相符。您可以使用 System Manager 建立自訂原則。
